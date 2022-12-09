@@ -1,0 +1,33 @@
+id,name,account_status_id,account_type_id,account_groups,balance_due,balance_total,sub_accounts,next_bill_date,delinquent
+1007,Caribbean Preparatory School,2,2,[],0,0.00,[],2018-07-01,False
+1025,Cordova & Cordova,3,2,[],0,0.00,[],,False
+1029,HemOncMedServices PSC,2,2,[],0,0.00,[],2018-07-01,False
+1043,ODV Appraisal Group,2,2,[],0,0.00,[],2018-07-01,False
+1059,Industrial Processing Mach \ Industrial Processing- Jaime Vicens Home,2,2,[],0,0.00,[],2018-07-01,False
+1150,"ERM Puerto Rico, Inc.",2,2,[],0,0.00,[1431],2018-07-01,False
+1152,ANCS,2,2,[],0,0.00,[],2018-07-01,False
+1160,Casa de los Tornillos-Fuerza Industrial,2,2,[],0,0.00,[],2018-07-01,False
+1164,Colomer & Suarez,2,2,[],0,0.00,[],2018-07-01,False
+1179,Hector Luis Acevedo,2,1,[],0,0.00,[],2018-07-01,False
+1184,"Prometric, Inc.",2,2,[],0,0.00,[],2018-07-01,False
+1219,Centennial,2,2,[],0,0.00,[],2018-07-01,False
+1228,Amcor Flexibles Puerto Rico,2,2,[],0,0.00,[],2018-07-01,False
+1254,Pedro J Rivera Alvelo,2,1,[],0,0.00,[],2018-07-01,False
+1257,International Restaurant Service inc.,2,2,[],0,0.00,[],2018-07-01,False
+1011,Vanessa Ballester Pinan,2,1,[],0,0.00,[],2018-07-01,False
+1069,Human Capital,2,2,[],0,0.00,[],2018-07-01,False
+1003,Rafael Llop,3,1,[],863.53,5340.42,"[1441, 1434]",2021-02-01,True
+1006,Enrique Velez Test,2,1,[],0,0.00,[],2018-07-01,False
+1010,Fernando Diaz TEST,2,1,[],0,0.00,[],2018-07-01,False
+1409,no use,3,3,[],0,0.00,[],2020-02-08,False
+1410,no use,3,3,[],0,0.00,[],2020-02-08,False
+1441,Jean Customer Edited,2,1,[],0,2198.00,[],2021-05-01,False
+1397,Jean Customer Edited,2,1,[],0,2198.00,[],2021-05-02,False
+1434,Jean Customer Edited,2,1,[],0,0.00,[],2021-05-02,False
+1438,VOIP test 3,1,5,[],0,0.00,[],,False
+1448,Jean Test New,2,2,[],0,220.78,[],2021-05-24,False
+1443,Emilio,3,1,[],1113.89,1113.89,[],,True
+1394,Jean Company,2,1,[],0,2198.00,[],2019-05-07,False
+1449,nwkrad-test01,2,2,[],0,0.00,[],2022-06-03,False
+1451,radtest3,2,1,[],0,149.00,[],2022-06-10,False
+1450,nwkrad-test02,2,1,[],0,156.97,[],2022-06-03,False
