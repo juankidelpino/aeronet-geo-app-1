@@ -11,14 +11,12 @@ import helpers
 import load_files
 import check_nearest
 import random
-import gits
+import coms
 
 def runcheck(USE_DEV_ACCOUNTS, USE_DEV_FABRIC):
     files = load_files.load_files()
     # print(files)
-    accounts_full_coords = files[0]
-    fabric_coords = files[1]
-    fabric_dictionary = files[2]
+    accounts_full_coords, fabric_coords, fabric_dictionary = files 
 
     # accounts_full_coords = accounts_full_coords.reset_index(inplace=True, drop=True)
     # fabric_coords = fabric_coords.reset_index(inplace=True, drop=True)
@@ -67,5 +65,7 @@ def runcheck(USE_DEV_ACCOUNTS, USE_DEV_FABRIC):
     if not USE_DEV_FABRIC and not USE_DEV_ACCOUNTS:
         final_object = check_nearest.ckdnearest(accounts_full_coords, fabric_coords)
         print(final_object)
+
+        
 
     return final_object

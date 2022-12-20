@@ -1,23 +1,26 @@
-# import functions_framework
-import gits
+import coms
 import runcheck
 import os
+import pickle
+import helpers
+
+# MAIN -> RUNCHECK -> LOAD_FILES -> RUNCHECK -> MAIN(final_object)
 
 USE_DEV_ACCOUNTS = True
 USE_DEV_FABRIC = False
 
-# @functions_framework.http
 
 def gitcheck_full(request):
     
-    test = gits.git_test()
-    final_object = ''
-    # final_object = runcheck(USE_DEV_ACCOUNTS, USE_DEV_FABRIC)
-
-    if not final_object == '':
-        return final_object
-    else:
-        return test
-
+    test = coms.git_test()
+    return test
 # gitcheck_full()
-gits.reset_git_test()
+# gits.reset_git_test()
+
+
+def update_accounts(request):
+    final_object = runcheck.runcheck(USE_DEV_ACCOUNTS, USE_DEV_FABRIC)
+    print(final_object)
+    return final_object
+
+update_accounts('')
