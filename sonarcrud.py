@@ -20,7 +20,7 @@ def get_all_accounts(only_active=False, only_type_ids=None):
     all_accounts = _get_all_entities("/accounts")
     to_return = all_accounts
     if only_active:
-        to_return = list(filter(lambda x: x["account_status_id"] not in SONAR_ACCOUNT_STATUS_ID_CLOSED_SET, all_accounts))
+        to_return = list(filter(lambda x: x["account_status_id"] == SONAR_ACCOUNT_STATUS_ACTIVE, all_accounts))
     
     # filter types if needed
     if only_type_ids:

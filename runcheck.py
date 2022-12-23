@@ -16,7 +16,7 @@ import coms
 def runcheck(USE_DEV_ACCOUNTS, USE_DEV_FABRIC):
     files = load_files.load_files()
     # print(files)
-    accounts_full_coords, fabric_coords, fabric_dictionary = files 
+    accounts_full_coords, fabric_coords = files 
 
     # accounts_full_coords = accounts_full_coords.reset_index(inplace=True, drop=True)
     # fabric_coords = fabric_coords.reset_index(inplace=True, drop=True)

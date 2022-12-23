@@ -15,6 +15,21 @@ import helpers
 #Create a GeoDataFrame for fabric coordinates
 fabric_coords = gpd.GeoDataFrame([['01010101', Point(0,0)]], columns=['Location ID', 'geometry'])
 
+def generate_fabric_dictionary():
+    #Create a dictionary to quickly access coordinates based on location ID
+    fabric_dictionary = {}
+
+    fabric_coords.reset_index()
+
+    for index, row in fabric_coords.iterrows():
+
+        fabric_dictionary[row['Location ID']] = {'geometry': row['geometry']}
+        
+    with open('fabric_dictionary.pickle', 'wb') as handle:
+
+    #Dump pickle 2
+            pickle.dump(fabric_dictionary, handle)
+
 def generate_pickles():
 
     with open("fabric.csv", 'r', encoding="utf8") as f:
@@ -41,18 +56,4 @@ def generate_pickles():
 #Dump pickle 1
         pickle.dump(fabric_coords, handle)
 
-#Create a dictionary to quickly access coordinates based on location ID
-    fabric_dictionary = {}
-
-    fabric_coords.reset_index()
-
-    for index, row in fabric_coords.iterrows():
-
-        fabric_dictionary[row['Location ID']] = {'geometry': row['geometry']}
-        
-    with open('fabric_dictionary.pickle', 'wb') as handle:
-
-#Dump pickle 2
-        pickle.dump(fabric_dictionary, handle)
-
-    return  ( open('fabric_dictionary.pickle', mode='r') , open('fabric_coords.pickle', mode='r') )
+    return  ( open('fabric_coords.pickle', mode='r') )

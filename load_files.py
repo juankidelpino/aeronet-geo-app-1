@@ -43,7 +43,7 @@ def load_files():
 
         service_id = row['id']
 
-        services_dict[service_id] = {'data_service': row['technology_code'], 'technology_code': row['technology_code'], 'full_service': row}
+        services_dict[service_id] = {'data_service': row['data_service'], 'technology_code': row['technology_code'], 'full_service': row}
 
 
     #Creating Dictionary for accounts and relevant service information
@@ -56,17 +56,17 @@ def load_files():
         account_id = row['id']
         print('Getting Account services for: ', account_id)
         service_data, pagination = sonarcrud.get_account_services(account_id)
-            
-    #Create a dictionary for matching account IDs to corresponding service IDs
-    if len(service_data) > 0:
 
-        accounts_with_services[account_id] = []
+        #Create a dictionary for matching account IDs to corresponding service IDs
+        if len(service_data) > 0:
 
-        for service in service_data:
+            accounts_with_services[account_id] = []
 
-            service_id = service['id']
+            for service in service_data:
 
-            accounts_with_services[account_id].append(service_id)
+                service_id = service['id']
+
+                accounts_with_services[account_id].append(service_id)
 
     #Create a dictionary for the final account-service objects
     accounts_full_service = {}
@@ -78,9 +78,9 @@ def load_files():
 
             data = services_dict[service_id]
 
-            if data['data_service'] == 'True' and data['technology_code'] == '50':
+            if data['data_service'] and data['technology_code'] == 50:
 
-                accounts_full_service[account_id] = services_dict[str(service_id)]['full_service']
+                accounts_full_service[account_id] = services_dict[service_id]['full_service']
     
 
 
@@ -88,7 +88,7 @@ def load_files():
     accounts_full_coords = gpd.GeoDataFrame([['01010101', Point(0,0)]], columns=['Account ID', 'geometry'])
 
     #Add the corresponding sonar coordinates to each account
-    if not os.path.exists('accounts_full_coords.pickle'): ######## Replace the pull accounts flag
+    if not os.path.exists('accounts_full_coords.pickle') or ALWAYS_FETCH_DATA: ######## Replace the pull accounts flag
 
         for account_id in accounts_full_service.keys():
 
