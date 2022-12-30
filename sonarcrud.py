@@ -29,6 +29,8 @@ def get_all_accounts(only_active=False, only_type_ids=None):
     if constants.JAP_TESTING_FLAG:
         return list(filter(lambda x: x["id"] == 17, to_return))
     
+    to_return = to_return[:200]
+
     return to_return
 
 def _get_all_entities(relative_url):

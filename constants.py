@@ -1,4 +1,4 @@
-JAP_DEV_FLAG = True
+JAP_DEV_FLAG = False
 JAP_DEBUG_FLAG = True
 JAP_TESTING_FLAG = False
 JAP_SONAR_URL = "https://aeronetsandbox.sonar.software/api/v1" if JAP_DEV_FLAG else "https://aeronet.sonar.software/api/v1"
