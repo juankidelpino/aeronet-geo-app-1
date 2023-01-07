@@ -1,7 +1,12 @@
-import flask
 import coms
 import runcheck
 import generate_pickles
+import flask
+import pandas as pd
+import geopandas as gp
+import numpy as np
+
+
 
 # MAIN -> RUNCHECK -> LOAD_FILES -> RUNCHECK -> MAIN(final_object)
 
@@ -23,6 +28,9 @@ def gitcheck_full():
 @app.get("/")
 def update_accounts():
     final_object = runcheck.runcheck(USE_DEV_ACCOUNTS, USE_DEV_FABRIC)
+    
+    final_object = finalize_object(final_object)
+    
     result = coms.upload_results(final_object)
     
     return result
@@ -31,6 +39,22 @@ def generate_pickles():
     pickle = generate_pickles.generate_pickles()
 
     return("Pickle Generated Successfuly")
+
+def finalize_object(data):
+    
+    data["provider_id"] = 370151
+    data["brand_name"] = "Aeronet Wireless Broadband LLC"
+    data["location_id"] = data['Location ID']
+    data["technology"] = 50
+    data["max_advertised_download_speed"] = 100
+    data["max_advertised_upload_speed"] = 25
+    data["low_latency"] = 1
+    data["business_residential_code"] = "X"
+    
+    final_data = data
+    final_data.drop(columns="Location ID")
+    
+    return final_data
 
 if __name__ == "__main__":
     # Used when running locally only. When deploying to Google App
