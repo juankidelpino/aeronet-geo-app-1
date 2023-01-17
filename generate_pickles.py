@@ -11,28 +11,16 @@ import helpers
 #Generates files 'fabric_coords.pickle' and 'fabric_dictionary.pickle'
 #Returns tuple ('fabric_dictionary.pickle' , 'fabric_coords.pickle')
 
-#LONG/LAT in FABRIC are index 14-15
-#Create a GeoDataFrame for fabric coordinates
-fabric_coords = gpd.GeoDataFrame([['01010101', Point(0,0)]], columns=['Location ID', 'geometry'])
-
-def generate_fabric_dictionary():
-    #Create a dictionary to quickly access coordinates based on location ID
-    fabric_dictionary = {}
-
-    fabric_coords.reset_index()
-
-    for index, row in fabric_coords.iterrows():
-
-        fabric_dictionary[row['Location ID']] = {'geometry': row['geometry']}
-        
-    with open('fabric_dictionary.pickle', 'wb') as handle:
-
-    #Dump pickle 2
-            pickle.dump(fabric_dictionary, handle)
 
 def generate_pickles():
 
-    with open("fabric.csv", 'r', encoding="utf8") as f:
+    #LONG/LAT in FABRIC are index 14-15
+    #Create a GeoDataFrame for fabric coordinates
+    fabric_coords = gpd.GeoDataFrame([['01010101', Point(0,0)]], columns=['Location ID', 'geometry'])
+
+    fabric_coords.reset_index()
+
+    with open("FCC_Active_BSL_12312022_ver1.csv", 'r', encoding="utf8") as f:
 
         reader = csv.reader(f)
         fabric_csv = list(reader)
